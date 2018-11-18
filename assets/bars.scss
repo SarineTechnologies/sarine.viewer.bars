@@ -159,24 +159,3 @@
 
     height: 30px;
 }
-
-
-.slide--light {
-
-    &.non-round-stone { // for fancy stones
-
-        .bar {
-
-            &:last-child { // fancy stone doesn't have 'symmetry' bar - so no bar is needed
-                display: none;
-            }
-        }
-
-        .bars_graph_foot_item {
-
-            &:last-child { // fancy stone doesn't have 'symmetry' bar - so no text is needed
-                display: none;
-            }
-        }
-    }
-}
