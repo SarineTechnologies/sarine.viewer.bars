@@ -1,0 +1,182 @@
+
+//graph + footer captions
+.bars_graph_container {
+    
+    //landscape including big smartphone excluding tablets
+    @media only screen
+    and (max-device-width : 850px)
+    and (orientation : landscape)
+    {
+        margin-left: 150px;
+        width: 60%;
+    }
+}
+
+.graph {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    height: 200px;
+    margin-top: 20px;
+
+    position: relative;
+    z-index: 1; // make it above the grid
+}
+
+.bar {
+   width: 40%;
+   background-color: red;
+   border: 2px solid black;
+   margin-left: 10px;
+
+   background: rgb(34,193,195);
+   background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(118,192,140,1) 50%, rgba(255,190,51,1) 100%);
+}
+
+.grid {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.new__row {
+    position: relative;
+    height: 30px;
+}
+
+.new__row__line {
+    content: '';
+    position: absolute;
+    left: 18%;
+    top: 50%;
+    right: 0;
+    height: 1px;
+    background-color: gray;
+    
+    //Google Pixel portrait
+    @media only screen
+    and (max-device-width : 420px)
+    and (orientation : portrait)
+    {
+        left: 22%;
+    }
+
+    //Apple iPhone 8 portrait
+    @media only screen
+    and (max-device-width : 375px)
+    and (orientation : portrait)
+    {
+        left: 25%;
+    }
+
+    //Apple iPhone 8 Plus landscape
+    @media only screen
+    and (max-device-width : 850px)
+    and (orientation : landscape)
+    {
+        left: 20%;
+    }
+
+    //Google Pixel 2 XL landscape
+    @media only screen
+    and (max-device-width : 830px)
+    and (-webkit-min-device-pixel-ratio: 3.5)
+    and (orientation : landscape)
+    {
+        left: 18%;
+    }
+    
+    //Apple iPhone 8 landscape
+    @media only screen
+    and (max-device-width : 700px)
+    and (orientation : landscape)
+    {
+        left: 22%;
+    }
+}
+
+.new__row__item {
+    width: 18%; // this is corrolated with '.new__row__line' 'left' property. this makes the ability to use text-align
+    height: 30px;
+    line-height: 30px;
+    
+    //Google Pixel portrait
+    @media only screen
+    and (max-device-width : 420px)
+    and (orientation : portrait)
+    {
+        width: 22%;
+    }    
+
+    //Apple iPhone 8 portrait
+    @media only screen
+    and (max-device-width : 375px)
+    and (orientation : portrait)
+    {
+        width: 25%;
+    }
+
+    //Apple iPhone 8 Plus landscape
+    @media only screen
+    and (max-device-width : 850px)
+    and (orientation : landscape)
+    {
+        width: 20%;
+    }
+
+    //Google Pixel 2 XL landscape
+    @media only screen
+    and (max-device-width : 830px)
+    and (-webkit-min-device-pixel-ratio: 3.5)
+    and (orientation : landscape)
+    {
+        width: 18%;
+    }
+    
+    //Apple iPhone 8 landscape
+    @media only screen
+    and (max-device-width : 700px)
+    and (orientation : landscape)
+    {
+        width: 22%;
+    }
+}
+
+.bars_graph_foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-top: -5px;
+}
+
+.bars_graph_foot_item {
+    text-align: center;
+
+    width: 40%;  // corollated with '.bar'
+    margin-left: 10px;
+
+    height: 30px;
+}
+
+
+.slide--light {
+
+    &.non-round-stone { // for fancy stones
+
+        .bar {
+
+            &:last-child { // fancy stone doesn't have 'symmetry' bar - so no bar is needed
+                display: none;
+            }
+        }
+
+        .bars_graph_foot_item {
+
+            &:last-child { // fancy stone doesn't have 'symmetry' bar - so no text is needed
+                display: none;
+            }
+        }
+    }
+}
