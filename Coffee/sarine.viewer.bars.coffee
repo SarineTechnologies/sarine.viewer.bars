@@ -16,7 +16,7 @@ class SarineBars extends Viewer
 		<div class="bars_graph_container">
 
 			<!-- this is the placeholder for the generated bars -->
-			<div class="graph">
+			<div class="barsGraph">
 			</div>
 
 			<!-- this is the placeholder for the generated horizontal lines -->
@@ -69,7 +69,7 @@ class SarineBars extends Viewer
 
 		#$(element).find("h1")[0].textContent = grades
 
-		graph = $(".graph", element)
+		graph = $(".barsGraph", element)
 
 		# for some reason, createGraph event is called more than once per instance....
 		# so build the bars only once.
@@ -83,10 +83,6 @@ class SarineBars extends Viewer
 			bar.css({'height': grade + '%'});
 			graph.append(bar)
 
-		#normally 'grid' element is placed benith 'graph' element, and is shorter than it.
-		#also, the horizontal lines are in the middle (50% in css) of the grade row (30px in css).
-		#so make sure the exceptional line has the same height as the top of the exceptional bar in 'graph' and is placed on top of it
-
 		grid = $('.grid', element)
 
 		# build the horizontal-line DOM elements according to the array
@@ -99,6 +95,10 @@ class SarineBars extends Viewer
 			</div>
 			")
 			grid.append(line)
+
+		#normally 'grid' element is placed benith 'barsGraph' element, and is shorter than it.
+		#also, the horizontal lines are in the middle (50% in css) of the grade row (30px in css).
+		#so make sure the exceptional line has the same height as the top of the exceptional bar in 'barsGraph' and is placed on top of it
 
 		#make the exceptional line has the same height as the top of the exceptional bar
 		desiredHeight = graph.height() + 30; # 30 is a single grade row height in css
