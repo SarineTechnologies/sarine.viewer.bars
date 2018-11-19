@@ -19,6 +19,7 @@
 
     height: 200px;
     margin-top: 20px;
+    margin-left: 80px; //move the graph to the right, so the grade names would be on the left of the graph
 
     position: relative;
     z-index: 1; // make it above the grid
@@ -149,6 +150,7 @@
     align-items: flex-end;
 
     margin-top: -5px;
+    margin-left: 80px; // move the x axis labels to the right, so the labels would be in the center of the bars (see their css rules)
 }
 
 .bars_graph_foot_item {

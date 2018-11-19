@@ -60,19 +60,9 @@ class SarineBars extends Viewer
 		defer.resolve(@)
 		defer
 
-	play: () ->
-		console.log("bars: play() called")
+	play: () -> return
 
-		defer = $.Deferred()
-		defer.resolve(@)
-		defer
-
-	stop: () ->
-		console.log("bars: stop() called")
-
-		defer = $.Deferred()
-		defer.resolve(@)
-		defer
+	stop: () -> return
 
 	createGraph: (event, args) ->
 		{element, xAxisDivs, grades, yAxisTicks} = args
@@ -120,8 +110,6 @@ class SarineBars extends Viewer
 		desiredTop = -graph.height() - 15; # 15 is half the row size
 		grid.css({'margin-top' : desiredTop + 'px'}) 
 
-		#now move the graph to the right, so the grade names would be on the left of the graph
-		graph.css({'margin-left' : '80px'})
 
 		# now add the x axis div elements
 
@@ -129,9 +117,7 @@ class SarineBars extends Viewer
 
 		for xAxisDiv in xAxisDivs
 			foot.append(xAxisDiv)
-
-		#now move the x axis labels to the right, so the labels would be in the center of the bars (see their css rules)
-		foot.css({'margin-left' : '80px'})
+		
 
 
 @SarineBars = SarineBars
