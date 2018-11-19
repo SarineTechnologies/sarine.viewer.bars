@@ -12,28 +12,26 @@ class SarineBars extends Viewer
 
 	# this method replaces <sarine-viewer> with bars html elements
 	convertElement :() =>
-		#@compile = $ "<h1>HELLO</h1>"
-		#@element.append(@compile)
-		
-		# return the resulting element
-		#return @element;
+		@compile = $ """
+		<div class="bars_graph_container">
 
-		# get the html file
-		url = @resourcesPrefix + "bars/bars.html?" +  @atomVersion
-	
-		$.get url, (innerHtml) =>
-			# convert the raw html string into an html DOM element
-			@compiled = $(innerHtml)
+			<!-- this is the placeholder for the generated bars -->
+			<div class="graph">
+			</div>
 
-			# $(".buttons",compiled).remove() if(@element.attr("menu")=="false")
-			# $(".stone_number",compiled).remove() if(@element.attr("coordinates")=="false")
-			# @element.css {width:"100%", height:"100%"}
-			# @element.attr("active","false")
-			# compiled.find('canvas').attr({width:@element.width(), height: @element.height()})
-			
-			# @element is the <sarine-viewer> variable, so replace its content with our html elements
-			@element.append(@compiled)
-		
+			<!-- this is the placeholder for the generated horizontal lines -->
+			<div class="grid">
+			</div>
+
+			<!-- this is the properties axis -->
+			<div class="bars_graph_foot">
+			</div>
+
+		</div>
+		"""
+
+		@element.append(@compile)
+
 		# return the resulting element
 		@element
 
