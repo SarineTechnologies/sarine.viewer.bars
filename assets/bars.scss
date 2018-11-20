@@ -26,13 +26,12 @@
 }
 
 .bar {
-   width: 40%;
-   background-color: red;
-   border: 2px solid black;
+   width: 12%;
+   border: 0.5px solid white;
    margin-left: 10px;
 
-   background: rgb(34,193,195);
-   background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(118,192,140,1) 50%, rgba(255,190,51,1) 100%);
+   background: rgb(0,26,77);
+   background: linear-gradient(0deg, rgba(0,26,77,1) 0%, rgba(0,0,0,1) 100%);
 }
 
 .grid {
@@ -101,6 +100,10 @@
     width: 18%; // this is corrolated with '.new__row__line' 'left' property. this makes the ability to use text-align
     height: 30px;
     line-height: 30px;
+
+    font-family: "Utopia Std", Georgia, sarif;
+    color: #878787;
+    font-size: 12px;
     
     //Google Pixel portrait
     @media only screen
@@ -160,4 +163,9 @@
     margin-left: 10px;
 
     height: 30px;
+
+    font-family: "Utopia Std", Georgia, sarif;
+    color: #878787;
+    font-size: 12px;
+    font-style: italic;
 }
