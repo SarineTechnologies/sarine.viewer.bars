@@ -1,16 +1,4 @@
 
-//graph + footer captions
-.bars_graph_container {
-    
-    //landscape including big smartphone excluding tablets
-    @media only screen
-    and (max-device-width : 850px)
-    and (orientation : landscape)
-    {
-        margin-left: 150px;
-        width: 60%;
-    }
-}
 
 .barsGraph {
     display: flex;
@@ -100,6 +88,8 @@
     width: 18%; // this is correlated with '.new__row__line' 'left' property. this makes the ability to use text-align
     height: 30px;
     line-height: 30px;
+
+    text-align: left;
 
     font-family: "Utopia Std", Georgia, sarif;
     color: #878787;
