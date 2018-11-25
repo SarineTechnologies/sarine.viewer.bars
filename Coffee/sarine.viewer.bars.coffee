@@ -1,14 +1,20 @@
 class SarineBars extends Viewer
 
-	# 'options' includes 'args' from all.json
+	
 	constructor: (options) ->
 		@resourcesPrefix = options.baseUrl + "atomic/v1/assets/"
 		@atomVersion = options.atomVersion
 
+		#access all objects on 'window' and 'document'
+		@stone = window.stones && window.stones[0]
+
+		@isStoneRound = @stone && @stone.stoneProperties && /(round)/ig.test(@stone.stoneProperties.shape);
+
+		# 'options' includes 'args' from all.json
+		@includeSymmetry = options.includeSymmetry && @isStoneRound;
+
 		super(options) # will call convertElement()
 
-		# access stones[0] for its grades
-		#@stone = window.stones && window.stones[0]
 
 	# this method replaces <sarine-viewer> with bars html elements
 	convertElement :() =>
@@ -38,8 +44,6 @@ class SarineBars extends Viewer
 	first_init : ()->
 		console.log("bars: first_init() called")
 
-		$(document).on('createGraph', @createGraph)
-
 		# inject the css file into the DOM
 		element = document.createElement("link")
 		element.href = @resourcesPrefix + "bars/bars.css?" +  @atomVersion
@@ -54,6 +58,8 @@ class SarineBars extends Viewer
 	full_init : ()->
 		console.log("bars: full_init() called")
 
+		@showLightBars()
+
 		defer = $.Deferred()
 		defer.resolve(@)
 		defer
@@ -62,14 +68,56 @@ class SarineBars extends Viewer
 
 	stop: () -> return
 
-	createGraph: (event, args) ->
-		{element, xAxisDivs, grades, yAxisTicks} = args
+	showLightBars: () ->
 
-		console.log("bars: createGraph() called: element: " + element)
+		grades = [@stone.lightGrades.brilliance.value, @stone.lightGrades.scintillation.value, @stone.lightGrades.fire.value]
 
-		#$(element).find("h1")[0].textContent = grades
+		xAxis = [
+			"<div class='bars_graph_foot_item' data-popup-id='popup_brilliance'>    \
+				<span>" + lang.lightBars.brilliance + "</span>                      \
+				<span class='q-mark-sm'></span>                                     \
+			</div>",
+			"<div class='bars_graph_foot_item' data-popup-id='popup_sparkle'>       \
+				<span>" + lang.lightBars.scintillation + "</span>                   \
+				<span class='q-mark-sm'></span>                                     \
+			</div>",
+			"<div class='bars_graph_foot_item' data-popup-id='popup_fire'>          \
+				<span>" + lang.lightBars.fire + "</span>                            \
+				<span class='q-mark-sm'></span>                                     \
+			</div>"
+		]
 
-		graph = $(".barsGraph", element)
+		if @includeSymmetry
+			grades.push(@stone.lightGrades.symmetry.value)
+
+			xAxis.push("<div class='bars_graph_foot_item' data-popup-id='popup_symmetry'>       \
+				<span>" + lang.lightBars.symmetry + "</span>                         \
+				<span class='q-mark-sm'></span>                                      \
+			</div>"
+			)
+
+		yAxisLabels = [
+			lang.lightBars.Exceptional,
+			lang.lightBars.veryHigh,
+			lang.lightBars.High,
+			lang.lightBars.Standard,
+			lang.lightBars.Minimum,
+			'' # this is the x axis itself
+		]
+
+		#grade of 5 is 100% since its the maximum
+		grades = grades.map (g) ->  g * 20 
+		
+		@createGraph(xAxis, grades, yAxisLabels);
+
+
+	createGraph: (xAxisDivs, grades, yAxisTicks) ->
+
+		console.log("bars: createGraph() called. element: " + @element)
+
+		#$(@element).find("h1")[0].textContent = grades
+
+		graph = $(".barsGraph", @element)
 
 		# for some reason, createGraph event is called more than once per instance....
 		# so build the bars only once.
@@ -83,7 +131,7 @@ class SarineBars extends Viewer
 			bar.css({'height': grade + '%'});
 			graph.append(bar)
 
-		grid = $('.grid', element)
+		grid = $('.grid', @element)
 
 		# build the horizontal-line DOM elements according to the array
 		# and add them into the grid
@@ -111,7 +159,7 @@ class SarineBars extends Viewer
 
 		# now add the x axis div elements
 
-		foot = $('.bars_graph_foot', element)
+		foot = $('.bars_graph_foot', @element)
 
 		for xAxisDiv in xAxisDivs
 			foot.append(xAxisDiv)
