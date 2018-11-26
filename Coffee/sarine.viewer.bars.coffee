@@ -74,16 +74,16 @@ class SarineBars extends Viewer
 
 		xAxis = [
 			"<div class='bars_graph_foot_item' data-popup-id='popup_brilliance'>    \
-				<span>" + lang.lightBars.brilliance + "</span>                      \
-				<span class='q-mark-sm'></span>                                     \
+				<div>" + lang.lightBars.brilliance + "</div>                      \
+				<div class='q-mark-sm'></div>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_sparkle'>       \
-				<span>" + lang.lightBars.scintillation + "</span>                   \
-				<span class='q-mark-sm'></span>                                     \
+				<div>" + lang.lightBars.scintillation + "</div>                   \
+				<div class='q-mark-sm'></div>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_fire'>          \
-				<span>" + lang.lightBars.fire + "</span>                            \
-				<span class='q-mark-sm'></span>                                     \
+				<div>" + lang.lightBars.fire + "</div>                            \
+				<div class='q-mark-sm'></div>                                     \
 			</div>"
 		]
 
@@ -91,8 +91,8 @@ class SarineBars extends Viewer
 			grades.push(@stone.lightGrades.symmetry.value)
 
 			xAxis.push("<div class='bars_graph_foot_item' data-popup-id='popup_symmetry'>       \
-				<span>" + lang.lightBars.symmetry + "</span>                         \
-				<span class='q-mark-sm'></span>                                      \
+				<div>" + lang.lightBars.symmetry + "</div>                         \
+				<div class='q-mark-sm'></div>                                      \
 			</div>"
 			)
 

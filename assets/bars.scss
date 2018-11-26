@@ -5,17 +5,24 @@
     justify-content: space-between;
     align-items: flex-end;
 
-    height: 200px;
-    margin-top: 20px;
+    height: 170px;
+    margin-top: 30px;
     margin-left: 80px; //move the graph to the right, so the grade names would be on the left of the graph
 
     position: relative;
     z-index: 1; // make it above the grid
+
+    //Apple iPhone 8 portrait
+    @media only screen
+    and (max-device-width : 375px)
+    and (orientation : portrait)
+    {
+        margin-left: 55px;
+    }
 }
 
 .bar {
    width: 12%;
-   border: 0.5px solid white;
    margin-left: 10px;
 
    background: rgb(0,26,77);
@@ -47,7 +54,7 @@
     and (max-device-width : 420px)
     and (orientation : portrait)
     {
-        left: 22%;
+        //left: 22%;
     }
 
     //Apple iPhone 8 portrait
@@ -55,7 +62,7 @@
     and (max-device-width : 375px)
     and (orientation : portrait)
     {
-        left: 25%;
+        //left: 25%;
     }
 
     //Apple iPhone 8 Plus landscape
@@ -63,7 +70,7 @@
     and (max-device-width : 850px)
     and (orientation : landscape)
     {
-        left: 20%;
+        //left: 20%;
     }
 
     //Google Pixel 2 XL landscape
@@ -72,7 +79,7 @@
     and (-webkit-min-device-pixel-ratio: 3.5)
     and (orientation : landscape)
     {
-        left: 18%;
+        //left: 18%;
     }
     
     //Apple iPhone 8 landscape
@@ -80,7 +87,7 @@
     and (max-device-width : 700px)
     and (orientation : landscape)
     {
-        left: 22%;
+        //left: 22%;
     }
 }
 
@@ -101,7 +108,8 @@
     and (max-device-width : 420px)
     and (orientation : portrait)
     {
-        width: 22%;
+        //width: 22%;
+        font-size: 10px;
     }    
 
     //Apple iPhone 8 portrait
@@ -109,7 +117,8 @@
     and (max-device-width : 375px)
     and (orientation : portrait)
     {
-        width: 25%;
+       // width: 25%;
+        font-size: 10px;
     }
 
     //Apple iPhone 8 Plus landscape
@@ -117,7 +126,8 @@
     and (max-device-width : 850px)
     and (orientation : landscape)
     {
-        width: 20%;
+       // width: 20%;
+        font-size: 10px;
     }
 
     //Google Pixel 2 XL landscape
@@ -126,7 +136,8 @@
     and (-webkit-min-device-pixel-ratio: 3.5)
     and (orientation : landscape)
     {
-        width: 18%;
+       // width: 18%;
+        font-size: 10px;
     }
     
     //Apple iPhone 8 landscape
@@ -134,7 +145,8 @@
     and (max-device-width : 700px)
     and (orientation : landscape)
     {
-        width: 22%;
+      //  width: 22%;
+        font-size: 10px;
     }
 }
 
@@ -144,7 +156,15 @@
     align-items: flex-end;
 
     margin-top: -5px;
-    margin-left: 80px; // move the x axis labels to the right, so the labels would be in the center of the bars (see their css rules)
+    margin-left: 80px; // // this is correlated with '.barsGraph' to move the x axis labels to the right, so the labels would be in the center of the bars (see their css rules)
+
+    //Apple iPhone 8 portrait
+    @media only screen
+    and (max-device-width : 375px)
+    and (orientation : portrait)
+    {
+        margin-left: 55px;
+    }
 }
 
 .bars_graph_foot_item {
@@ -159,4 +179,12 @@
     color: #878787;
     font-size: 12px;
     font-style: italic;
+
+    //Apple iPhone 8 portrait
+    @media only screen
+    and (max-device-width : 375px)
+    and (orientation : portrait)
+    {
+        font-size: 11px;
+    }
 }
