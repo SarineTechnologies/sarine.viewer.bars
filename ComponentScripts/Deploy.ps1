@@ -21,6 +21,13 @@ $sourceRelativePath = "dist"
 Write-Output "Creating s3 site..."
 & "$env:ModulesPath\s3sync.ps1" -EnvName $envName -envId $envId -envType $envType -WebSiteFolder $iisAppName -targetPathWithoutEnvPrefix $targetPathWithoutEnvPrefix -maxAge 31536000 -sourceRelativePath $sourceRelativePath
 
+Write-Output "Copy assets files to s3.."
+
+$targetPathWithoutEnvPrefix = "content/viewers/atomic/v1/assets"
+$sourceRelativePath = "assets"
+& "$env:ModulesPath\s3sync.ps1" -EnvName $envName -envId $envId -envType $envType -WebSiteFolder $iisAppName -targetPathWithoutEnvPrefix $targetPathWithoutEnvPrefix -maxAge 31536000 -sourceRelativePath $sourceRelativePath
+
+
 if($envType -eq "prod"){
        $siteUri = "http://viewer-api.sarine.com/cache/v2/atom/sarine.viewer.bars"
 }
