@@ -170,7 +170,7 @@
 .bars_graph_foot_item {
     text-align: center;
 
-    width: 12%;  // correlated with '.bar'
+    width: 18%;  // correlated with '.bar'
     margin-left: 10px;
 
     height: 30px;
@@ -185,6 +185,13 @@
     and (max-device-width : 375px)
     and (orientation : portrait)
     {
-        font-size: 11px;
+        font-size: 10px;
+        margin-left: 4px;
+        width: 25%;
     }
+
+}
+
+.bars_graph_foot_label{
+    display: inline-block;
 }

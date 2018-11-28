@@ -74,15 +74,15 @@ class SarineBars extends Viewer
 
 		xAxis = [
 			"<div class='bars_graph_foot_item' data-popup-id='popup_brilliance'>    \
-				<div>" + lang.lightBars.brilliance + "</div>                      \
+				<div class='bars_graph_foot_label'>" + lang.lightBars.brilliance + "</div>                      \
 				<div class='q-mark-sm'></div>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_sparkle'>       \
-				<div>" + lang.lightBars.scintillation + "</div>                   \
+				<div class='bars_graph_foot_label'>" + lang.lightBars.scintillation + "</div>                   \
 				<div class='q-mark-sm'></div>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_fire'>          \
-				<div>" + lang.lightBars.fire + "</div>                            \
+				<div class='bars_graph_foot_label'>" + lang.lightBars.fire + "</div>                            \
 				<div class='q-mark-sm'></div>                                     \
 			</div>"
 		]
@@ -90,8 +90,8 @@ class SarineBars extends Viewer
 		if @includeSymmetry
 			grades.push(@stone.lightGrades.symmetry.value)
 
-			xAxis.push("<div class='bars_graph_foot_item' data-popup-id='popup_symmetry'>       \
-				<div>" + lang.lightBars.symmetry + "</div>                         \
+			xAxis.push("<div class='bars_graph_foot_item bars_graph_foot_item_four' data-popup-id='popup_symmetry'>       \
+				<div class='bars_graph_foot_label'>" + lang.lightBars.symmetry + "</div>                         \
 				<div class='q-mark-sm'></div>                                      \
 			</div>"
 			)
