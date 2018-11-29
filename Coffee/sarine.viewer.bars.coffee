@@ -74,16 +74,16 @@ class SarineBars extends Viewer
 
 		xAxis = [
 			"<div class='bars_graph_foot_item' data-popup-id='popup_brilliance'>    \
-				<div class='bars_graph_foot_label'>" + lang.lightBars.brilliance + "</div>                      \
-				<div class='q-mark-sm'></div>                                     \
+				<span class='bars_graph_foot_label'>" + lang.lightBars.brilliance + "</span>                      \
+				<span class='q-mark-sm'></span>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_sparkle'>       \
-				<div class='bars_graph_foot_label'>" + lang.lightBars.scintillation + "</div>                   \
-				<div class='q-mark-sm'></div>                                     \
+				<span class='bars_graph_foot_label'>" + lang.lightBars.scintillation + "</span>                   \
+				<span class='q-mark-sm'></span>                                     \
 			</div>",
 			"<div class='bars_graph_foot_item' data-popup-id='popup_fire'>          \
-				<div class='bars_graph_foot_label'>" + lang.lightBars.fire + "</div>                            \
-				<div class='q-mark-sm'></div>                                     \
+				<span class='bars_graph_foot_label'>" + lang.lightBars.fire + "</span>                            \
+				<span class='q-mark-sm'></span>                                     \
 			</div>"
 		]
 
@@ -91,8 +91,8 @@ class SarineBars extends Viewer
 			grades.push(@stone.lightGrades.symmetry.value)
 
 			xAxis.push("<div class='bars_graph_foot_item bars_graph_foot_item_four' data-popup-id='popup_symmetry'>       \
-				<div class='bars_graph_foot_label'>" + lang.lightBars.symmetry + "</div>                         \
-				<div class='q-mark-sm'></div>                                      \
+				<span class='bars_graph_foot_label'>" + lang.lightBars.symmetry + "</span>                         \
+				<span class='q-mark-sm'></span>                                      \
 			</div>"
 			)
 
@@ -163,6 +163,18 @@ class SarineBars extends Viewer
 
 		for xAxisDiv in xAxisDivs
 			foot.append(xAxisDiv)
+
+		popupService = new PopupService({
+        	overlay: document.getElementById('popup_overlay')
+        });
+
+		$('.bars_graph_foot_item').click ->
+			popupName = this.getAttribute('data-popup-id')
+			popupService.open(document.getElementById(popupName))
+
+		$('.popup__close-btn').click ->
+			popupService.close(this.parentNode.parentNode)
+		
 		
 
 
