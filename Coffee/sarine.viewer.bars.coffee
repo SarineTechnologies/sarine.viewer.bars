@@ -51,14 +51,16 @@ class SarineBars extends Viewer
 		element.type= "text/css"
 		$(document.head).prepend(element)
 
+		# create the graph here on first_init() and NOT in full_init() so that the popup (of the ?) would work on the bases
+		# since bases' main() is called after all atoms' first_init()
+		@showLightBars()
+
 		defer = $.Deferred()
 		defer.resolve(@)
 		defer
 
 	full_init : ()->
 		console.log("bars: full_init() called")
-
-		@showLightBars()
 
 		defer = $.Deferred()
 		defer.resolve(@)
@@ -90,7 +92,7 @@ class SarineBars extends Viewer
 		if @includeSymmetry
 			grades.push(@stone.lightGrades.symmetry.value)
 
-			xAxis.push("<div class='bars_graph_foot_item bars_graph_foot_item_four' data-popup-id='popup_symmetry'>       \
+			xAxis.push("<div class='bars_graph_foot_item' data-popup-id='popup_symmetry'>       \
 				<div class='bars_graph_foot_label'>" + lang.lightBars.symmetry + "</div>                         \
 				<div class='q-mark-sm'></div>                                      \
 			</div>"
@@ -144,25 +146,13 @@ class SarineBars extends Viewer
 			")
 			grid.append(line)
 
-		#normally 'grid' element is placed benith 'barsGraph' element, and is shorter than it.
-		#also, the horizontal lines are in the middle (50% in css) of the grade row (30px in css).
-		#so make sure the exceptional line has the same height as the top of the exceptional bar in 'barsGraph' and is placed on top of it
-
-		#make the exceptional line has the same height as the top of the exceptional bar
-		desiredHeight = graph.height() + 30; # 30 is a single grade row height in css
-		grid.height(desiredHeight);
-
-		#make it on it
-		desiredTop = -graph.height() - 15; # 15 is half the row size
-		grid.css({'margin-top' : desiredTop + 'px'}) 
-
-
 		# now add the x axis div elements
 
 		foot = $('.bars_graph_foot', @element)
 
 		for xAxisDiv in xAxisDivs
 			foot.append(xAxisDiv)
+
 		
 
 

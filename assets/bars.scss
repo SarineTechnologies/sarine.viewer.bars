@@ -33,6 +33,12 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    
+    //normally 'grid' element is placed benith 'barsGraph' element, and is shorter than it.
+    //also, the horizontal lines are in the middle (50% in css) of the grade row (30px in css).
+    //so make sure the exceptional line has the same height as the top of the exceptional bar in 'barsGraph' and is placed on top of it
+    height: 200px;
+    margin-top: -185px;
 }
 
 .new__row {
@@ -170,7 +176,7 @@
 .bars_graph_foot_item {
     text-align: center;
 
-    width: 18%;  // correlated with '.bar'
+    width: 18%;
     margin-left: 10px;
 
     height: 30px;
