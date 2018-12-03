@@ -18,6 +18,8 @@
     and (orientation : portrait)
     {
         margin-left: 55px;
+        margin-top: 0px;
+        height: 150px;
     }
 }
 
@@ -39,6 +41,13 @@
     //so make sure the exceptional line has the same height as the top of the exceptional bar in 'barsGraph' and is placed on top of it
     height: 200px;
     margin-top: -185px;
+    @media only screen
+    and (max-device-width : 360px)
+    and (orientation : portrait)
+    {
+        height: 170px;
+        margin-top: -165px;
+    }
 }
 
 .new__row {
@@ -170,6 +179,7 @@
     and (orientation : portrait)
     {
         margin-left: 55px;
+        margin-top: 0px;
     }
 }
 
