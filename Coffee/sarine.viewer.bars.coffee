@@ -99,12 +99,12 @@ class SarineBars extends Viewer
 			)
 
 		yAxisLabels = [
-			lang.lightBars.Exceptional,
-			lang.lightBars.veryHigh,
-			lang.lightBars.High,
-			lang.lightBars.Standard,
-			lang.lightBars.Minimum,
-			'' # this is the x axis itself
+			{key: "Exceptional", value: lang.lightBars.Exceptional},
+			{key: "veryHigh", value: lang.lightBars.veryHigh},
+			{key: "High", value: lang.lightBars.High},
+			{key: "Standard", value: lang.lightBars.Standard},
+			{key: "Minimum", value: lang.lightBars.Minimum},
+			{key: "xAxis", value: ''} # this is the x axis itself
 		]
 
 		#grade of 5 is 100% since its the maximum
@@ -140,8 +140,8 @@ class SarineBars extends Viewer
 		for tick in yAxisTicks
 			line = $("
 			<div class='new__row'>
-				<div class='new__row__line'></div>
-				<div class='new__row__item'>#{tick}</div>
+				<div class='new__row__line new__row__line__#{tick.key}'></div>
+				<div class='new__row__item'>#{tick.value}</div>
 			</div>
 			")
 			grid.append(line)
