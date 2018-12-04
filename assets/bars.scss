@@ -210,11 +210,4 @@
 
 .bars_graph_foot_label{
     display: inline-block;
-
-    @media only screen
-    and (max-device-width :800px)
-    and (orientation : landscape)
-    {
-    width: 100%;
-    }
 }
