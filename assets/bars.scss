@@ -186,7 +186,7 @@
 .bars_graph_foot_item {
     text-align: center;
 
-    width: 18%;
+    width: 20%;
     margin-left: 10px;
 
     height: 30px;
@@ -210,7 +210,9 @@
 
 .bars_graph_foot_label{
     display: inline-block;
+
     @media only screen
+    and (max-device-width :800px)
     and (orientation : landscape)
     {
     width: 100%;
