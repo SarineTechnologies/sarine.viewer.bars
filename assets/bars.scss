@@ -211,3 +211,18 @@
 .bars_graph_foot_label{
     display: inline-block;
 }
+
+.bars_graph_foot_item:last-child{
+    @media only screen
+    and (max-device-width : 850px)
+    and (orientation : portrait)
+    {
+        margin-right: 10px;
+    }
+    @media only screen
+    and (max-device-width : 850px)
+    and (orientation : landscape)
+    {
+        margin-right: 10px;
+    }
+}
