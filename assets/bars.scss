@@ -213,16 +213,5 @@
 }
 
 .bar:last-child{
-    @media only screen
-    and (max-device-width : 850px)
-    and (orientation : portrait)
-    {
         margin-right: 10px;
-    }
-    @media only screen
-    and (max-device-width : 850px)
-    and (orientation : landscape)
-    {
-        margin-right: 10px;
-    }
 }
