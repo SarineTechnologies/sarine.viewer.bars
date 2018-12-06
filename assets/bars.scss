@@ -212,7 +212,7 @@
     display: inline-block;
 }
 
-.bars_graph_foot_item:last-child{
+.bar:last-child{
     @media only screen
     and (max-device-width : 850px)
     and (orientation : portrait)
