@@ -112,6 +112,22 @@ class SarineBars extends Viewer
 		
 		@createGraph(xAxis, grades, yAxisLabels);
 
+		@registerPopups();
+
+
+	registerPopups: () ->
+		
+        openPopupTriggers = Array.prototype.slice.call(document.querySelectorAll('[data-popup-id]'), 0);
+    
+        for element in openPopupTriggers
+            element.addEventListener('click', @registerOpenPopups)
+
+
+	registerOpenPopups: (event) ->
+        popupId = event.currentTarget.getAttribute('data-popup-id');
+
+        $(document).trigger('barsOpenPopup', popupId);
+
 
 	createGraph: (xAxisDivs, grades, yAxisTicks) ->
 
