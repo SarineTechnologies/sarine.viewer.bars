@@ -1,6 +1,6 @@
 {
   "name": "sarine.viewer.bars",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "bars chart atom",
   "main": "index.js",
   "scripts": {
